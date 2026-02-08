@@ -317,23 +317,11 @@ class CategorySection extends StatelessWidget {
                 label: "Ver todas as categorias",
                 enabled: true,
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: const Text('Mais categorias em desenvolvimento'),
-                      behavior: SnackBarBehavior.floating,
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/categories');
                 },
                 child: InkWell(
                   onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Text('Mais categorias em desenvolvimento'),
-                        behavior: SnackBarBehavior.floating,
-                        duration: const Duration(seconds: 2),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/categories');
                   },
                   child: Text(
                     "Ver todas",
@@ -400,23 +388,11 @@ class _CategoryCard extends StatelessWidget {
       label: "Categoria $label",
       enabled: true,
       onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Explorar categoria $label'),
-            behavior: SnackBarBehavior.floating,
-            duration: const Duration(seconds: 2),
-          ),
-        );
+        Navigator.pushNamed(context, '/category-details', arguments: label);
       },
       child: InkWell(
         onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Explorar categoria $label'),
-              behavior: SnackBarBehavior.floating,
-              duration: const Duration(seconds: 2),
-            ),
-          );
+          Navigator.pushNamed(context, '/category-details', arguments: label);
         },
         borderRadius: BorderRadius.circular(12),
         child: Container(
