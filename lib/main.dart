@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'config/routes.dart';
 import 'core/theme/app_theme.dart';
-import 'features/home/home_screen.dart';
-import 'core/widgets/vlibras_widget.dart';
 
 void main() {
   runApp(
@@ -36,20 +35,12 @@ class AngicalTurismoApp extends StatelessWidget {
       title: 'Angical Turismo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.highContrastTheme, // Using darkTheme slot for high contrast for now, or custom
+      darkTheme: AppTheme.highContrastTheme,
       themeMode: themeProvider.isHighContrast ? ThemeMode.dark : ThemeMode.light,
-      home: const HomeScreen(),
+      initialRoute: '/login',
+      onGenerateRoute: AppRoutes.generateRoute,
       builder: (context, child) {
-        return Stack(
-          children: [
-             if (child != null) child,
-             const Positioned(
-               right: 16,
-               top: 200, // Arbitrary position for VLibras widget
-               child: VLibrasWidget(),
-             ),
-          ],
-        );
+        return child ?? const SizedBox();
       },
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

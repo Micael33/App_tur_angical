@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/accessibility/semantics_helper.dart';
+
 import 'tourist_spot_model.dart';
 import 'package:provider/provider.dart';
 import '../../main.dart'; // For ThemeProvider
